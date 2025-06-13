@@ -291,7 +291,7 @@ plt.show()
 
 
 xt = DATABASEx[matching_rows50][:,:]
-yt =DATABASEy[matching_rows50][:,0]
+yt =DATABASEy[matching_rows50][:,1]
 
 
 # training the model
@@ -325,19 +325,19 @@ sm.train()
 #sm = DecisionTreeClassifier()
 #sm = XGBClassifier()  
 
-sm = RandomForestRegressor()
+#sm = LS()
 
 
 #sm = SVR()  
 
 #sm = MLPClassifier()
 
-sm.fit(xt, yt)
+#sm.fit(xt, yt)
     
 # predictionsns
 
 xval = DATABASEx
-yval =DATABASEy[:,0]
+yval =DATABASEy[:,1]
 
 
 
@@ -345,8 +345,8 @@ yval =DATABASEy[:,0]
 
 
 
-y = sm.predict(xval)
-y = np.round(sm.predict(xval))
+y = sm.predict_values(xval)
+#y = np.round(sm.predict(xval))
 
 #y= (sm.predict(xval))
 

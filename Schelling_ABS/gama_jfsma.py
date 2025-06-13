@@ -121,18 +121,18 @@ async def main(n_cols, ppl_dens, soc_tol, map_size, perception_dist ):
     client4 = GamaSyncClient("localhost", 6868, async_command_answer_handler, gama_server_message_handler)
     client5 = GamaSyncClient("localhost", 6868, async_command_answer_handler, gama_server_message_handler)
     
-    await client1.connect(False)
-    await client2.connect(False)
-    await client3.connect(False)
-    await client4.connect(False)
-    await client5.connect(False)
+    await client1.connect(True)
+    await client2.connect(True)
+    await client3.connect(True)
+    await client4.connect(True)
+    await client5.connect(True)
 
     # Extract values to create filename
     param_values = [str(param["value"]) for param in parameters]    
     new_filename = "_".join(param_values) + "_exp"#+str(i)+".csv"
-    output_path = r"C:\Users\00pls\.eclipse\306334380_win32_win32_x86_64\configuration\org.eclipse.osgi\21\0\.cp\models\Toy Models\Segregation (Schelling)\models\results\output"
+    output_path = r"C:\Users\psaves\Gama_Workspace2\Schelling_adapted_Paul\models\results\output"
     renamed_path = os.path.join(os.path.dirname(output_path), new_filename)
-    f_pth = r"C:\Users\00pls\.eclipse\306334380_win32_win32_x86_64\configuration\org.eclipse.osgi\21\0\.cp\models\Toy Models\Segregation (Schelling)\models\Segregation (Agents).gaml"
+    f_pth = r"C:\Users\psaves\Gama_Workspace2\Schelling_adapted_Paul\models\Segregation (Agents).gaml"
    
     parameters[-1]["value"] = "1"       
     gama_response = client1.sync_load(f_pth, "schelling",None, None,None,None, parameters )          
@@ -261,8 +261,8 @@ if __name__ == "__main__":
     print(i)
     xt_200 = np.atleast_2d(xt_200[i])[0]
     xt_200[0] = 3
-    xt_200[1] = 0.60
-    xt_200[2] = 0.33
+    xt_200[1] = 0.615
+    xt_200[2] = 0.321
     xt_200[3] = 30
     xt_200[4] = 3
     xt_200 = np.atleast_2d(xt_200)

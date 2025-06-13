@@ -81,7 +81,7 @@ def main(n_cols, ppl_dens, soc_tol, map_size, perception_dist):
     ]
     #   for i in range(2) :
     # i = 0
-    nb_clients = 3
+    nb_clients = 10
     param_values = [str(param["value"]) for param in parameters]
     f_pth = r"C:\Users\psaves\Desktop\gama\gama.library\models\Toy Models\Segregation (Schelling)\models\Segregation (Agents).gaml"
 
